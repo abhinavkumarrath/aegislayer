@@ -223,7 +223,7 @@ python -c "import torch; print('Device:', torch.cuda.get_device_name(0) if torch
 - **Vault is ephemeral**: Session state is cleared after every round-trip — no persistent PII storage.
 - **Tokens are opaque**: Tokens like `[PERSON_1]` carry no plaintext information.
 - **CORS**: Currently open (`*`) for development. Lock down to your frontend origin in production.
-- **API Keys**: Never log or persist the `original` field from audit entries in production.
+- **Audit Ledger Redaction**: Never log or persist the `original` field from audit entries in production. By setting `ENV_MODE=production` in your `.env`, AegisLayer will automatically programmatically change the audit log response block to `"original": "[REDACTED_FOR_SECURITY]"` to ensure compliance.
 
 ---
 

@@ -152,11 +152,15 @@ def _coerce_audit(raw: dict) -> AuditEntry:
     except ValueError:
         etype = EntityType.UNKNOWN
 
+    original_val = raw.get("original")
+    if os.getenv("ENV_MODE", "development").lower() == "production":
+        original_val = "[REDACTED_FOR_SECURITY]"
+
     return AuditEntry(
         action   = AuditAction(raw.get("action", "REDACTED")),
         type     = etype,
         token    = raw.get("token", ""),
-        original = raw.get("original"),
+        original = original_val,
     )
 
 
