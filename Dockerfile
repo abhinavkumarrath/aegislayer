@@ -7,10 +7,10 @@ WORKDIR /app
 # Copy the requirements file into the container
 COPY backend/requirements.txt .
 
-# Install dependencies (CPU fallback by default to keep image size reasonable, 
-# can be overridden with ROCm base image if deploying to AMD hardware)
-RUN pip install --no-cache-dir -r requirements.txt \
-    && pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+# Install dependencies 
+# Critical for AMD Hackathon: Install PyTorch with ROCm 6.0 explicitly BEFORE requirements
+RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.0 \
+    && pip install --no-cache-dir -r requirements.txt
 
 # Copy the backend and frontend directories
 COPY backend/ ./backend/

@@ -174,7 +174,12 @@ class LLMClient:
         if self._client is None or self._client.is_closed:
             self._client = httpx.AsyncClient(
                 base_url = LLM_BASE_URL,
-                timeout  = httpx.Timeout(LLM_TIMEOUT, connect=5.0),
+                # Explicitly enforce total request limit bounds beyond connection limits
+                timeout = httpx.Timeout(
+                    timeout=LLM_TIMEOUT,     # Total transaction limit (defaults to 30s)
+                    connect=5.0,             # Handshake threshold
+                    read=15.0                # Stalled payload packet read ceiling
+                ),
                 headers  = {
                     "Authorization": f"Bearer {LLM_API_KEY}",
                     "Content-Type" : "application/json",

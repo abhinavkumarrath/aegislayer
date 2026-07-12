@@ -25,7 +25,7 @@ pip install -r requirements.txt -q
 
 IF NOT EXIST ".env" (
     echo Creating default .env from .env.example...
-    copy ..\.env.example .env > nul
+    copy .env.example .env > nul
 )
 
 echo.

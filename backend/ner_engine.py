@@ -129,16 +129,22 @@ class NEREngine:
         t0 = time.perf_counter()
         try:
             from transformers import pipeline as hf_pipeline  # noqa: PLC0415
+            import torch  # Crucial for data type access
 
             device_int, label = self._resolve_device()
             self._device_name = label
 
-            logger.info("NEREngine: loading model %s on %s …", self._MODEL_NAME, label)
+            # AMD Optimization: Use FP16 on GPU to utilize Matrix Cores, fallback to FP32 on CPU
+            torch_dtype = torch.float16 if device_int >= 0 else torch.float32
+
+            logger.info("NEREngine: loading model %s on %s with %s …", self._MODEL_NAME, label, torch_dtype)
+            
             self._pipeline = hf_pipeline(
                 task                  = "ner",
                 model                 = self._MODEL_NAME,
-                aggregation_strategy  = "first",   # 'first' gives cleaner span boundaries than 'simple'
+                aggregation_strategy  = "simple", 
                 device                = device_int,
+                torch_dtype           = torch_dtype,  # ◄ ADD THIS Optimization Hook
             )
             elapsed = (time.perf_counter() - t0) * 1000
             logger.info("NEREngine: model ready in %.1f ms on %s", elapsed, label)

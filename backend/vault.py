@@ -137,7 +137,7 @@ class SessionVault:
     async def detokenize(self, session_id: str, text: str) -> str:
         """
         Replace all placeholder tokens in *text* with their original values.
-        Unknown tokens (not in current session) are left untouched.
+        Handles case-mutation and bracket dropping by LLMs gracefully.
         """
         session = await self._get_or_create(session_id)
         async with session.lock:
@@ -146,17 +146,29 @@ class SessionVault:
         if not mapping:
             return text
 
-        # Build a single regex for all tokens so one pass handles everything.
-        # CRITICAL: Sort tokens by length descending so [PERSON_10] matches
-        # before [PERSON_1], preventing partial subset replacements.
-        escaped = sorted([re.escape(tok) for tok in mapping], key=len, reverse=True)
-        pattern = re.compile("|".join(escaped))
+        # Sort descending to prevent subset matches ([PERSON_10] before [PERSON_1])
+        sorted_tokens = sorted(mapping.keys(), key=len, reverse=True)
+        
+        # Clean tokens to get raw identifier strings (e.g., "EMAIL_A" out of "[EMAIL_A]")
+        raw_ids = [tok.strip("[]") for tok in sorted_tokens]
+        
+        # Build case-insensitive regex that accommodates missing/dropped brackets optionally
+        # Matches: [EMAIL_A], [email_a], EMAIL_A, email_a securely
+        pattern_str = "|".join([rf"\[?({re.escape(raw_id)})\]?" for raw_id in raw_ids])
+        pattern = re.compile(pattern_str, re.IGNORECASE)
 
         def replacer(m: re.Match) -> str:
-            return mapping.get(m.group(0), m.group(0))
+            # Find which captured group hit to reconstruct the exact standard token key
+            matched_text = m.group(0)
+            
+            # Normalize match back to your uppercase dictionary key format "[TOKEN_ID]"
+            extracted_raw = re.sub(r"[\[\]]", "", matched_text).upper()
+            standard_key = f"[{extracted_raw}]"
+            
+            return mapping.get(standard_key, matched_text)
 
         restored = pattern.sub(replacer, text)
-        logger.debug("Vault[%s] detokenize done (%d subs)", session_id, len(mapping))
+        logger.debug("Vault[%s] resilient detokenize done (%d subs)", session_id, len(mapping))
         return restored
 
     async def get_mapping(self, session_id: str) -> Dict[str, str]:

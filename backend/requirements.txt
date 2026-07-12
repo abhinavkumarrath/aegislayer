@@ -18,6 +18,7 @@ uvicorn[standard]>=0.29.0
 
 # ── ML / NLP ──────────────────────────────────────────────────────────────
 # PyTorch is installed separately (see above) to pick the right compute backend
+torch>=2.2.0
 transformers>=4.40.0
 # Accelerate for optimised HuggingFace inference
 accelerate>=0.29.0

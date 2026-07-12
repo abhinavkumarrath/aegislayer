@@ -77,9 +77,20 @@ _START_TIME = time.time()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Pre-warm the NER model during startup so first request isn't slow."""
-    logger.info("AegisLayer starting — pre-warming NER model …")
-    asyncio.create_task(ner_engine.ensure_loaded())
+    """Pre-warm and pre-execute the NER model during startup."""
+    logger.info("AegisLayer starting — warming model architectures …")
+    
+    # Target your existing initialization helper
+    await ner_engine.ensure_loaded()
+    
+    # Run a cold dummy execution pass to force ROCm layer kernel compilation
+    try:
+        logger.info("AegisLayer executing ROCm warm-up routine …")
+        await ner_engine.extract_entities("Warm up system execution context for AMD hardware acceleration.")
+        logger.info("AegisLayer ROCm engine fully compiled and optimized.")
+    except Exception as e:
+        logger.warning("ROCm compilation warm-up warning: %s", e)
+
     yield
     # Graceful shutdown
     logger.info("AegisLayer shutting down — closing LLM client …")
