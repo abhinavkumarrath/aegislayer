@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AegisLayer Presentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@700&display=swap');
+
+        :root {
+            --bg-color: #0b0f19;
+            --text-color: #f1f5f9;
+            --accent-red: #ff3333;
+            --accent-blue: #0ea5e9;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Slide Container */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 8rem;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+        }
+
+        /* Print formatting */
+        @media print {
+            body {
+                background-color: #0b0f19 !important;
+            }
+            .slide {
+                width: 297mm; /* A4 Landscape width */
+                height: 210mm; /* A4 Landscape height */
+                page-break-after: always;
+                page-break-inside: avoid;
+                padding: 40mm;
+            }
+            .slide:last-child {
+                page-break-after: auto;
+            }
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+        }
+
+        .title-huge {
+            font-size: 5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--text-color), #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .content-slide {
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 6rem;
+        }
+
+        .content-slide h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            border-bottom: 4px solid var(--accent-red);
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        ul {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin-left: 2rem;
+            color: #cbd5e1;
+            max-width: 900px;
+        }
+
+        li {
+            margin-bottom: 1.5rem;
+        }
+
+        li strong {
+            color: var(--accent-blue);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #94a3b8;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            left: 4rem;
+            right: 4rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .amd-badge {
+            color: var(--accent-red);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* Decorations */
+        .glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, rgba(0,0,0,0) 70%);
+            top: -200px;
+            right: -200px;
+            z-index: 0;
+        }
+        
+        .glow-red {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,51,51,0.08) 0%, rgba(0,0,0,0) 70%);
+            bottom: -150px;
+            left: -150px;
+            z-index: 0;
+        }
+
+        .z-10 {
+            z-index: 10;
+        }
+
+        .highlight {
+            color: var(--accent-red);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: TITLE -->
+    <div class="slide">
+        <div class="glow"></div>
+        <div class="glow-red"></div>
+        <div class="z-10">
+            <h1 class="title-huge">AegisLayer</h1>
+            <h2 class="subtitle">Enterprise Zero-Trust Privacy Middleware for LLMs</h2>
+            <div style="margin-top: 4rem; text-align: center;">
+                <p class="amd-badge">POWERED BY AMD ROCm™</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: THE PROBLEM -->
+    <div class="slide content-slide">
+        <div class="glow"></div>
+        <h2>The Problem: The AI Data Bottleneck</h2>
+        <div class="z-10" style="width: 100%;">
+            <ul>
+                <li><strong>Data Leakage:</strong> Employees inadvertently paste highly sensitive PII, trade secrets, and API keys into public Cloud LLMs.</li>
+                <li><strong>Compliance Risks:</strong> Strict regulations (GDPR, HIPAA, SOC2) prevent enterprises from adopting cutting-edge AI.</li>
+                <li><strong>Loss of Control:</strong> Once data hits an external API, the enterprise has no cryptographic guarantee of how that data is used or stored.</li>
+                <li><strong>The Bottleneck:</strong> Companies are blocking AI tools entirely to prevent breaches, killing innovation.</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <span>AegisLayer</span>
+            <span>The Problem</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: OUR SOLUTION -->
+    <div class="slide content-slide">
+        <div class="glow-red"></div>
+        <h2>The Solution: AegisLayer</h2>
+        <div class="z-10" style="width: 100%;">
+            <p style="font-size: 2rem; color: #f1f5f9; line-height: 1.6; max-width: 1000px; margin-bottom: 2rem;">
+                A zero-trust middleware that sits between the enterprise network and the Cloud LLM.
+            </p>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>1. Intercept & Redact</h3>
+                    <p>Analyzes outbound prompts locally. Swaps out names, IPs, and PII for opaque tokens like <code style="color: var(--accent-red);">[PERSON_1]</code>.</p>
+                </div>
+                <div class="card">
+                    <h3>2. The Ephemeral Vault</h3>
+                    <p>Original values are safely locked in a strict in-memory local vault. Data never leaves your hardware.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Safe Inference</h3>
+                    <p>The Cloud LLM processes the sanitized prompt, entirely unaware of the underlying sensitive identities.</p>
+                </div>
+                <div class="card">
+                    <h3>4. Restore & Deliver</h3>
+                    <p>AegisLayer intercepts the AI response, swaps the tokens back to real values, and wipes the vault entirely.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>AegisLayer</span>
+            <span>The Solution</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: ARCHITECTURE & AMD -->
+    <div class="slide content-slide">
+        <div class="glow"></div>
+        <h2>Architecture & <span class="highlight">AMD ROCm™</span></h2>
+        <div class="z-10" style="width: 100%;">
+            <ul>
+                <li><strong>Dual-Engine Sanitization:</strong>
+                    <ul>
+                        <li style="font-size: 1.5rem;"><em>CPU Regex Engine:</em> Instantaneously catches structured data (Emails, API Keys, CCs).</li>
+                        <li style="font-size: 1.5rem;"><em>GPU NER Engine:</em> PyTorch-based HuggingFace Transformers (BERT) catch unstructured context.</li>
+                    </ul>
+                </li>
+                <li><strong>AMD Instinct Acceleration:</strong> Our ML pipeline compiles directly to AMD GPUs using ROCm, achieving <strong class="highlight">sub-100ms latency</strong> for real-time inference without stalling the user.</li>
+                <li><strong>Drop-in Replacement:</strong> Acts as a reverse proxy. Developers just change the API Base URL to point to AegisLayer. Zero code rewrites required.</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <span>AegisLayer</span>
+            <span>Technology Stack</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: BUSINESS MODEL -->
+    <div class="slide content-slide">
+        <div class="glow-red"></div>
+        <h2>Business Model & Go-To-Market</h2>
+        <div class="z-10" style="width: 100%;">
+            <div class="grid-2">
+                <div class="card">
+                    <h3>B2B Enterprise SaaS</h3>
+                    <p>Annual licensing model for enterprise deployments. Priced on a per-seat or per-request volume basis. Delivered as a containerized appliance (Docker/Kubernetes) deployed in the client's VPC.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Marketplace Integration</h3>
+                    <p>1-Click deployments on AWS/Azure/GCP marketplaces. Seamlessly attaches to existing corporate AI gateways.</p>
+                </div>
+                <div class="card">
+                    <h3>Target Audience</h3>
+                    <p>Healthcare providers, FinTech startups, legal firms, and government contractors who desperately need AI but cannot compromise on strict data residency.</p>
+                </div>
+                <div class="card">
+                    <h3>Open Core Strategy</h3>
+                    <p>Free open-source community edition (basic regex) to drive developer adoption. Premium enterprise tier unlocks AMD GPU-accelerated NER, SSO, and Audit ledgers.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>AegisLayer</span>
+            <span>Business Model</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: COMPETITIVE ADVANTAGE -->
+    <div class="slide content-slide">
+        <div class="glow"></div>
+        <h2>Why AegisLayer Wins</h2>
+        <div class="z-10" style="width: 100%;">
+            <ul>
+                <li><strong>Zero Prompt Friction:</strong> Users don't need to manually filter their own prompts. They work naturally; we handle the security silently.</li>
+                <li><strong>Reversible Architecture:</strong> Unlike generic PII scrubbers that just delete data (ruining the prompt context), our Token-Vault paradigm ensures the AI understands the structure, and the user gets their data back.</li>
+                <li><strong>Hardware Agility:</strong> Natively optimized for AMD ROCm, offering incredible price-to-performance ratios for enterprises building out private clusters.</li>
+                <li><strong>Audit & Compliance:</strong> Built-in unalterable logging allows security teams to prove compliance to auditors without seeing the raw PII.</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <span>AegisLayer</span>
+            <span>Competitive Advantage</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: ROADMAP -->
+    <div class="slide content-slide">
+        <div class="glow-red"></div>
+        <h2>Future Roadmap</h2>
+        <div class="z-10" style="width: 100%;">
+            <ul>
+                <li><strong>Q3 2026: Multimodal Redaction</strong> - Expanding the pipeline to detect and blur faces/IDs in images using vision-based ML models on AMD GPUs.</li>
+                <li><strong>Q4 2026: Fine-Tuned Custom Models</strong> - Allowing enterprises to train the NER engine on their specific proprietary terms (e.g., secret project codenames).</li>
+                <li><strong>Q1 2027: Edge Deployment</strong> - Compiling the engine for ONNX/TensorRT equivalents to run directly on secure endpoint laptops before data even hits the corporate network.</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <span>AegisLayer</span>
+            <span>Roadmap</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: END -->
+    <div class="slide">
+        <div class="glow"></div>
+        <div class="glow-red"></div>
+        <div class="z-10">
+            <h1 class="title-huge" style="font-size: 4rem;">Empower Innovation.<br>Protect Privacy.</h1>
+            <h2 class="subtitle" style="margin-top: 2rem;">Thank You</h2>
+            <div style="margin-top: 3rem; text-align: center;">
+                <p style="font-size: 1.5rem; color: #94a3b8;">Team: AMD Hackathon Edition</p>
+                <p style="font-size: 1.2rem; color: #64748b; margin-top: 1rem;">https://github.com/abhinavkumarrath/aegislayer</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
