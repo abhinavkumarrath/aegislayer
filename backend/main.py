@@ -195,7 +195,7 @@ async def root():
     """Serve the landing page index.html if present."""
     index_path = os.path.join(_FRONTEND_DIR, "index.html")
     if os.path.isfile(index_path):
-        return FileResponse(index_path)
+        return FileResponse(index_path, headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
     return JSONResponse({"message": "AegisLayer API running. See /docs for API reference."})
 
 
@@ -204,7 +204,7 @@ async def dashboard():
     """Serve the dashboard.html if present."""
     index_path = os.path.join(_FRONTEND_DIR, "dashboard.html")
     if os.path.isfile(index_path):
-        return FileResponse(index_path)
+        return FileResponse(index_path, headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
     return JSONResponse({"message": "Dashboard not found."})
 
 
@@ -213,7 +213,7 @@ async def documentation():
     """Serve the docs.html if present."""
     index_path = os.path.join(_FRONTEND_DIR, "docs.html")
     if os.path.isfile(index_path):
-        return FileResponse(index_path)
+        return FileResponse(index_path, headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
     return JSONResponse({"message": "Docs not found."})
 
 
@@ -222,7 +222,7 @@ async def custom_swagger_ui():
     """Serve the custom-branded Swagger UI."""
     swagger_path = os.path.join(_FRONTEND_DIR, "swagger.html")
     if os.path.isfile(swagger_path):
-        return FileResponse(swagger_path, media_type="text/html")
+        return FileResponse(swagger_path, media_type="text/html", headers={"Cache-Control": "no-cache, no-store, must-revalidate"})
     # Fallback: generate inline if file missing
     from fastapi.openapi.docs import get_swagger_ui_html
     return get_swagger_ui_html(openapi_url="/openapi.json", title="AegisLayer API")

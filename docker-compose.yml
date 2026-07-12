@@ -16,19 +16,8 @@ services:
     group_add:
       - video
       
-    environment:
-      # Defaults for the AMD Hackathon or general deployments
-      - LOG_LEVEL=INFO
-      - NER_MODEL=dslim/bert-base-NER
-      - NER_SCORE_THRESHOLD=0.75
-      - ENV_MODE=development
-      - NER_REQUEST_TIMEOUT_S=45.0
-      - LLM_TIMEOUT_S=30.0
-      # Optional external LLM configuration 
-      # - LLM_API_KEY=your_groq_api_key_here
-      # - LLM_BASE_URL=https://api.groq.com/openai/v1
-      # - LLM_MODEL=llama-3.3-70b-versatile
+    env_file:
+      - .env
     restart: unless-stopped
     volumes:
-      # Optional: Mount .env if you prefer keeping secrets in a local file
-      - ./backend/.env:/app/backend/.env:ro
+      - ./.env:/app/backend/.env:ro
