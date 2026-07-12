@@ -1,0 +1,1930 @@
+{
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "total_redacted": 282,
+    "avg_latency_ms": 1614.0528678894043
+  },
+  "results": [
+    {
+      "index": 1,
+      "name": "HR Onboarding Email \u2014 Multiple Employees",
+      "category": "Human Resources",
+      "description": "Complex HR communication with multiple employee PII across an onboarding document",
+      "prompt_length": 1513,
+      "status": "PASSED",
+      "latency_ms": 1588.1,
+      "entities_redacted": 30,
+      "entity_breakdown": {
+        "EMAIL": 7,
+        "PHONE": 6,
+        "API_KEY": 1,
+        "ORG": 2,
+        "PERSON": 7,
+        "LOCATION": 7
+      },
+      "sanitized_snippet": "Subject: New Hire Onboarding Documentation \u2014 Q3 Batch\n\nDear HR Team,\n\nI am writing to formally initiate the onboarding process for the following new employees joining [ORG_2]. starting Monday, 14th August 2026.\n\n1. [PERSON_7] \u2014 Software Engineer III\n   Email: [EMAIL_G] | Personal: [EMAIL_F]\n   Phone",
+      "restored_snippet": "Dear Margaret Holloway,\n\nI have taken note of the new hire onboarding documentation for the Q3 batch at Nexus Technologies Ltd. The three new employees, Priya Sharma, James O'Brien, and Yuki Tanaka, are scheduled to join on Monday, 14th August 2026. I will ensure that their corporate accounts are provisioned before their start date.\n\nTo confirm, I will generate unique passwords for each employee a",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_G]",
+          "original": "priya.sharma@nexus-tech.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_F]",
+          "original": "priyasharma92@gmail.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_F]",
+          "original": "+91 9845231078"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_E]",
+          "original": "+91 9712340099"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "james.obrien@nexus-tech.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "jobrien_dev@outlook.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+1-415-867-5309"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+1-415-234-0981"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "y.tanaka@nexus-tech.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "yukitanaka.pm@yahoo.co.jp"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+81 90-1234-5678"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_A]",
+          "original": "NXT_CORP_VAULT_7f8a9b2c3d4e5f6a7b8c9d0e1f2a3b4c"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "margaret.holloway@nexus-tech.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+44 20 7946 3821"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Nexus Technologies Ltd"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_7]",
+          "original": "Priya Sharma"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_6]",
+          "original": "Rahul Sharma"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_7]",
+          "original": "India"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_6]",
+          "original": "Andheri West"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_5]",
+          "original": "Mumbai"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_4]",
+          "original": "Maharashtra"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_5]",
+          "original": "James O'Brien"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_4]",
+          "original": "Claire O'Brien"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "Elm Street"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "San Francisco"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "CA"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_3]",
+          "original": "Yuki Tanaka"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Kenji Tanaka"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Margaret Holloway"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "Nexus Technologies"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Security Incident Report \u2014 Data Breach",
+      "category": "Cybersecurity",
+      "description": "Security team incident report with IPs, API keys, credentials, and attacker details",
+      "prompt_length": 1819,
+      "status": "PASSED",
+      "latency_ms": 1671.2,
+      "entities_redacted": 27,
+      "entity_breakdown": {
+        "EMAIL": 7,
+        "PHONE": 2,
+        "IPV4": 9,
+        "API_KEY": 4,
+        "PERSON": 2,
+        "ORG": 3
+      },
+      "sanitized_snippet": "SECURITY INCIDENT REPORT \u2014 SEVERITY: CRITICAL\nIncident ID: SEC-2026-0047 | Date: 2026-07-12T18:34:00Z\nReported by: [PERSON_2], [ORG_3] | [EMAIL_G] | [PHONE_A]\n\nEXECUTIVE SUMMARY:\nAt 18:02 UTC on July 12th, 2026, our [ORG_2] flagged anomalous outbound traffic originating from our production subnet at",
+      "restored_snippet": "This is a critical security incident report (SEC-2026-0047) detailing an unauthorized access event. On July 12th, 2026, at 18:02 UTC, Intrusion Detection System detected anomalous outbound traffic from the production subnet at 10.142.0.0/24. The investigation, led by Dr. Fatima Al-Rashid from SOC, found that a compromised developer API key (sk-prod-9x2kLmNpQrStUvWxYz1234567890abcdef) associated wi",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_G]",
+          "original": "alex.chen@acmecorp.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-650-555-0192"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_H]",
+          "original": "10.142.0.0"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_F]",
+          "original": "f.alrashid@acmecorp.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_A]",
+          "original": "sk-prod-9x2kLmNpQrStUvWxYz1234567890abcdef"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "devops-pipeline@acmecorp.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_A]",
+          "original": "185.220.101.47"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_G]",
+          "original": "10.142.0.15"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_F]",
+          "original": "10.142.0.23"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_E]",
+          "original": "10.142.0.88"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "accounts@acmecorp.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_C]",
+          "original": "AKIAIOSFODNN7EXAMPLE"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_B]",
+          "original": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_D]",
+          "original": "192.168.100.15"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_C]",
+          "original": "192.168.100.16"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_B]",
+          "original": "10.0.1.1"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_A]",
+          "original": "sk-prod-9x2kLmNpQrStUvWxYz1234567890abcdef"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "aws-admin@acmecorp.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_A]",
+          "original": "185.220.101.47"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "legal@acmecorp.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "cto@acmecorp.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-650-555-0192"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Alex Chen"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_3]",
+          "original": "CISO"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Intrusion Detection System"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "SOC"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Fatima Al-Rashid"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Medical Patient Referral \u2014 Healthcare",
+      "category": "Healthcare",
+      "description": "Clinical referral letter with patient demographics, diagnoses, and physician contacts",
+      "prompt_length": 1868,
+      "status": "PASSED",
+      "latency_ms": 1506.9,
+      "entities_redacted": 22,
+      "entity_breakdown": {
+        "EMAIL": 5,
+        "PHONE": 6,
+        "PERSON": 4,
+        "LOCATION": 5,
+        "ORG": 2
+      },
+      "sanitized_snippet": "CONFIDENTIAL MEDICAL REFERRAL\nFrom: Dr. [PERSON_4], MD (Cardiology)\n      [LOC_5] \u2014 [ORG_2]\n      [EMAIL_E] | Direct: [PHONE_A]\n      License #: [LOC_4]-2019-34872\n\nTo: Dr. [PERSON_3], MD (Interventional Cardiology)\n    [ORG_1]\n    [EMAIL_D] | [PHONE_E]\n\nRE: Patient Referral \u2014 URGENT\n\nPatient Name: ",
+      "restored_snippet": "This is a confidential medical referral from Dr. Sarah Patel to Dr. Marcus Webb for patient Robert James Kowalski, who is experiencing a STEMI. The patient has a history of type 2 diabetes, hypertension, and is currently taking several medications. Dr. Sarah Patel requests that Dr. Marcus Webb contact them at +1-312-555-8743 ext. 4402 to discuss the urgent case. Pre-authorization is required for c",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "sarah.patel@staugustinemc.org"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-312-555-8743"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "m.webb@northwestern-heart.org"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_E]",
+          "original": "+1-312-555-0234"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+1-773-555-4490"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+1-773-555-8821"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "rkowalski64@comcast.net"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "e.vasquez@lpfp.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+1-773-555-3300"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "rkim@samc-billing.org"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-312-555-8743"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_4]",
+          "original": "Sarah Patel"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_5]",
+          "original": "St. Augustine Medical Center"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Department of Cardiology"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_4]",
+          "original": "IL-MD"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_3]",
+          "original": "Marcus Webb"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "Northwestern Heart Institute"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Robert James Kowalski"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "Oak Park Avenue"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "Chicago"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "Illinois"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Linda Kowalski"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Legal Contract NDA \u2014 Law Firm",
+      "category": "Legal",
+      "description": "Confidential NDA with parties, addresses, financial terms and contact details",
+      "prompt_length": 1697,
+      "status": "PASSED",
+      "latency_ms": 1469.5,
+      "entities_redacted": 33,
+      "entity_breakdown": {
+        "EMAIL": 5,
+        "PHONE": 5,
+        "ORG": 12,
+        "PERSON": 3,
+        "LOCATION": 8
+      },
+      "sanitized_snippet": "NON-DISCLOSURE AGREEMENT \u2014 DRAFT FOR [ORG_12]\n\nPrepared by: [PERSON_3], Senior Associate\n             [ORG_11]\n             [EMAIL_A] | [PHONE_A]\n             33 [LOC_7], [LOC_5], E14 5AB\n\nThis Non-Disclosure Agreement (\"Agreement\") is entered into as of the 12th day of July, 2026, by and between:\n\n",
+      "restored_snippet": "This is a draft of a Non-Disclosure Agreement (NDA) between Quantum Leap Ventures Ltd (the Disclosing Party) and TechFusion AI Inc (the Receiving Party). The agreement is prepared by Victoria Sterling of Harrington & Blackwell LLP and is dated July 12, 2026. The purpose of the NDA is to protect confidential information related to Quantum Leap Ventures Ltd's Series B fundraising round, which will b",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "v.sterling@h-blaw.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+44 20 7946 8800"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "a.pemberton@quantumleap.vc"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+44 7911 123456"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "mzhang@techfusion.ai"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+1-650-867-9000"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "t.harrington@h-blaw.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+44 7700 900123"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "v.sterling@h-blaw.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+44 20 7946 8800"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_12]",
+          "original": "REVIEW"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_3]",
+          "original": "Victoria Sterling"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_11]",
+          "original": "Harrington & Blackwell LLP"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_7]",
+          "original": "Canary Wharf"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_5]",
+          "original": "London"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_10]",
+          "original": "Quantum Leap Ventures Ltd"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_6]",
+          "original": "Canada Square"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_5]",
+          "original": "London"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Alexander Pemberton"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_9]",
+          "original": "TechFusion AI Inc"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_8]",
+          "original": "Oracle"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_4]",
+          "original": "Parkway"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "Redwood City"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "CA"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "United States"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Mei-Lin Zhang"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_7]",
+          "original": "US Bank"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_6]",
+          "original": "Disclosing Party"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_5]",
+          "original": "Receiving Party"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_4]",
+          "original": "NHS"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_3]",
+          "original": "Deutsche Bank"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Thomas Harrington"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "Victoria"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "name": "DevOps Infrastructure Incident \u2014 SRE Team",
+      "category": "DevOps / SRE",
+      "description": "Site reliability incident with server IPs, credentials, service accounts, and contact escalation",
+      "prompt_length": 1870,
+      "status": "PASSED",
+      "latency_ms": 1636.1,
+      "entities_redacted": 28,
+      "entity_breakdown": {
+        "EMAIL": 8,
+        "PHONE": 7,
+        "IPV4": 7,
+        "API_KEY": 2,
+        "PERSON": 2,
+        "ORG": 2
+      },
+      "sanitized_snippet": "PRODUCTION INCIDENT \u2014 P0 SEVERITY\nIncident: INC-2026-3847 | Started: 2026-07-12 14:22:15 UTC | Status: ONGOING\nIncident Commander: [PERSON_2] | [EMAIL_H] | Pager: [PHONE_C]\nOn-call Engineer: [PERSON_1] | [EMAIL_G] | [PHONE_D]\n\nPROBLEM STATEMENT:\nOur primary Kubernetes cluster (prod-k8s-us-east-1) ex",
+      "restored_snippet": "The current incident, INC-2026-3847, is a P0 severity production incident. It started at 14:22:15 UTC on 2026-07-12 and is still ongoing. The root cause appears to be a misconfigured autoscaler in the primary Kubernetes cluster (prod-k8s-us-east-1), leading to cascading pod failures and a 97% drop in checkout success rate due to database connection timeouts from the 'order-processor' service.\n\nKey",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_H]",
+          "original": "rahul.gupta@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+91 98451 00923"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_G]",
+          "original": "s.andersen@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+45 31 23 45 67"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_G]",
+          "original": "10.0.1.50"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_F]",
+          "original": "10.0.1.51"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_E]",
+          "original": "10.0.1.52"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_D]",
+          "original": "10.0.2.10"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_B]",
+          "original": "REDIS_AUTH_TOKEN_k9m2n4p6q8r1s3t5u7v9"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_C]",
+          "original": "10.0.3.5"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_B]",
+          "original": "52.14.233.10"
+        },
+        {
+          "action": "REDACTED",
+          "type": "IPV4",
+          "token": "[IP_A]",
+          "original": "34.102.136.180"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_F]",
+          "original": "d.park@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "p.nair@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_E]",
+          "original": "+91 99001 23456"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "svc-order-processor@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_A]",
+          "original": "SVC_KEY_9xKmPqRsTuVwXyZ1234567890AbCdEf"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+45 31 23 45 67"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+91 98451 00923"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "e.richardson@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+44 7911 654321"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "m.lee@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-415-555-0199"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "enterprise@startup.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Rahul Gupta"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Soren Andersen"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Redis"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "CDN"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "name": "Financial Advisory Report \u2014 Wealth Management",
+      "category": "Finance / Banking",
+      "description": "Private wealth management report with account numbers, SSN, investment details",
+      "prompt_length": 1664,
+      "status": "PASSED",
+      "latency_ms": 1506.9,
+      "entities_redacted": 25,
+      "entity_breakdown": {
+        "EMAIL": 4,
+        "PHONE": 5,
+        "CREDIT_CARD": 3,
+        "ORG": 8,
+        "PERSON": 2,
+        "LOCATION": 3
+      },
+      "sanitized_snippet": "CONFIDENTIAL \u2014 PRIVATE CLIENT WEALTH MANAGEMENT REPORT\nQuarter 2 2026 \u2014 Portfolio Review\n\nPrepared for: [ORG_7]\nClient ID: PWM-CITI-2026-FR-449821\n[PERSON_2] Fairbanks: SSN 578-34-9021 | DOB: 22 June 1969\n[PERSON_1] Fairbanks: SSN 891-23-4567 | DOB: 04 November 1972\nPrimary Address: 94 [LOC_3], [LOC",
+      "restored_snippet": "This document appears to be a confidential private client wealth management report for Jonathan & Elizabeth Fairbanks, specifically for Elizabeth and Jonathan Fairbanks. The report provides a comprehensive review of their portfolio as of June 30, 2026, including their primary brokerage account, investment account, credit facilities, and key holdings. The total portfolio value is $4,287,340.17. The",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "jonathan.fairbanks@fairbanksconsulting.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_E]",
+          "original": "+1-203-555-7812"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "e.fairbanks@gmail.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+1-203-555-8843"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "a.castellano@citiwealth.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+1-203-555-4400"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+1-203-867-5309"
+        },
+        {
+          "action": "REDACTED",
+          "type": "CREDIT_CARD",
+          "token": "[CARD_C]",
+          "original": "4011-8823-4432-9900"
+        },
+        {
+          "action": "REDACTED",
+          "type": "CREDIT_CARD",
+          "token": "[CARD_B]",
+          "original": "3782-822463-10005"
+        },
+        {
+          "action": "REDACTED",
+          "type": "CREDIT_CARD",
+          "token": "[CARD_A]",
+          "original": "5412-3456-7890-2233"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "r.huang@deloitte.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-212-555-0834"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_7]",
+          "original": "Jonathan & Elizabeth Fairbanks"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Jonathan"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Elizabeth"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "Meadowbrook Lane"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "Greenwich"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "CT"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_6]",
+          "original": "Anthony"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_5]",
+          "original": "CitiWealth Private Banking"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_4]",
+          "original": "Greenwich Office"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_3]",
+          "original": "PORTFOLIO"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Citibank N"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Citibank N"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "ABA"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "name": "Customer Support Escalation \u2014 E-Commerce",
+      "category": "Customer Service",
+      "description": "Multi-party customer escalation with order details, payment info, and contact chain",
+      "prompt_length": 1640,
+      "status": "PASSED",
+      "latency_ms": 1772.2,
+      "entities_redacted": 21,
+      "entity_breakdown": {
+        "EMAIL": 6,
+        "PHONE": 4,
+        "CREDIT_CARD": 1,
+        "PERSON": 7,
+        "LOCATION": 3
+      },
+      "sanitized_snippet": "ESCALATED SUPPORT TICKET \u2014 PRIORITY HIGH\nTicket ID: SUPP-2026-ECS-99023 | Escalated by: [PERSON_7] (Tier 2) \u2192 [PERSON_6] (Tier 3)\nCustomer Account: CUST-EU-449820 | Joined: 2019-03-14\n\nCustomer Details:\nName: [PERSON_5]\nEmail: [EMAIL_F] | Phone: [PHONE_D]\nShipping Address: [LOC_3] 185, 80804 [LOC_2]",
+      "restored_snippet": "To resolve the escalated support ticket SUPP-2026-ECS-99023, I recommend the following steps:\n\n1. Obtain authorization from Tim Hooper, Sophie's account manager, to refund \u20ac897.00 to the customer's Visa card ending 9012.\n2. Coordinate with Franziska M\u00fcller at the warehouse to ship a replacement order of 3x Sony WH-1000XM5 Headphones to the customer's address at Leopoldstra\u00dfe 185, 80804 M\u00fcnchen, Ge",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_F]",
+          "original": "sophie.bauer@web.de"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+49 89 1234 5678"
+        },
+        {
+          "action": "REDACTED",
+          "type": "CREDIT_CARD",
+          "token": "[CARD_A]",
+          "original": "4532-8844-2211-9012"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+49 89 8765 4321"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "l.fernandez@shop-support.eu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "sopport@shopeu.de"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "r.patel@shop-support.eu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "t.hooper@shopeu.de"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+44 20 7946 1234"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "f.mueller@shopeu-logistics.de"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+49 211 9988 7766"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_7]",
+          "original": "Kevin Walsh"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_6]",
+          "original": "Amanda Torres"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_5]",
+          "original": "Sophie Bauer"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "Leopoldstra\u00dfe"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "M\u00fcnchen"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "Germany"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_4]",
+          "original": "Klaus Brandt"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_3]",
+          "original": "Lucia Fernandez"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Sophie"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Franziska"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "name": "Academic Research Collaboration \u2014 University",
+      "category": "Academia / Research",
+      "description": "Research grant collaboration letter with multi-institutional PII and funding details",
+      "prompt_length": 1753,
+      "status": "PASSED",
+      "latency_ms": 1532.8,
+      "entities_redacted": 33,
+      "entity_breakdown": {
+        "EMAIL": 9,
+        "PHONE": 7,
+        "API_KEY": 1,
+        "PERSON": 5,
+        "ORG": 8,
+        "LOCATION": 3
+      },
+      "sanitized_snippet": "INTER-INSTITUTIONAL RESEARCH COLLABORATION PROPOSAL\nProject: \"Privacy-Preserving AI for Clinical Genomics\" \nGrant Reference: NIH-NIGMS-2026-R01-047823\n\nPrincipal Investigator: Professor [PERSON_5], PhD\n[ORG_7] \u2014 [ORG_6]\n[EMAIL_I] | Office: [PHONE_G] | Lab: [PHONE_F]\nORCID: 0000-0002-3456-7890 | Facu",
+      "restored_snippet": "The provided document is a research collaboration proposal for the project \"Privacy-Preserving AI for Clinical Genomics\" with the grant reference NIH-NIGMS-2026-R01-047823. The project is led by Principal Investigator Professor Amelia Rodriguez and involves Co-Principal Investigators Dr. Samuel Okonkwo, Professor Ingrid Lindqvist, and Dr. Chen Wei from various institutions. \n\nThe total NIH budget ",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_I]",
+          "original": "a.rodriguez@stanford.edu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_G]",
+          "original": "+1-650-723-4401"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_F]",
+          "original": "+1-650-723-5512"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_H]",
+          "original": "s.okonkwo@jhmi.edu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_E]",
+          "original": "+1-410-955-6781"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_G]",
+          "original": "ingrid.lindqvist@ki.se"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_F]",
+          "original": "chenwei@bjmu.edu.cn"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+86 10 8280 1984"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "olivia.kim@stanford.edu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+1-650-723-9900"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "compliance@stanford.edu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "security-research@stanford.edu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "API_KEY",
+          "token": "[APIKEY_A]",
+          "original": "STAN_SEC_KEY_7h8i9j0k1l2m3n4o5p6q7r8s"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "b.hartmann@stanford.edu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+1-650-725-0001"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "r.lowe@stanford.edu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-650-723-7700"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_5]",
+          "original": "Amelia Rodriguez"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_7]",
+          "original": "Stanford University"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_6]",
+          "original": "Department of Biomedical Informatics"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_4]",
+          "original": "Samuel Okonkwo"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "MD"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_5]",
+          "original": "Johns Hopkins University"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_3]",
+          "original": "Ingrid Lindqvist"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_4]",
+          "original": "Karolinska Institutet"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "Sweden"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_3]",
+          "original": "Swedish Research Council"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Chen Wei"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Peking University Health Science Centre"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "Stanford"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "Johns Hopkins"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Olivia Kim"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "Stanford"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "name": "Sales CRM Lead \u2014 Enterprise Software",
+      "category": "Sales / CRM",
+      "description": "Sales opportunity record with prospect details, pricing, and multi-contact chain",
+      "prompt_length": 1925,
+      "status": "PASSED",
+      "latency_ms": 1544.5,
+      "entities_redacted": 29,
+      "entity_breakdown": {
+        "PHONE": 8,
+        "EMAIL": 8,
+        "CREDIT_CARD": 1,
+        "ORG": 6,
+        "LOCATION": 3,
+        "PERSON": 3
+      },
+      "sanitized_snippet": "SALESFORCE CRM \u2014 OPPORTUNITY RECORD\nOpportunity: TechVision ERP Suite \u2014 Enterprise License\nOpportunity ID: OPP-2026-ENT-0034\nStage: Contract Negotiation | Close Date: 31 Aug 2026 | ARR: $480,000\n\nPROSPECT COMPANY: [ORG_6].\nIndustry: [ORG_5] | Employees: 4,200 | Revenue: ~$890M/year\nHQ: 4500 [LOC_3],",
+      "restored_snippet": "The current stage of the TechVision ERP Suite \u2014 Enterprise License opportunity with Meridian Global Manufacturing Ltd is Contract Negotiation, with a close date of August 31, 2026, and an annual recurring revenue (ARR) of $480,000. The key stakeholders include Patricia Nguyen, the CFO and economic buyer, Derek Hoffman, the VP and technical evaluator, and Susan Park, the senior counsel for legal an",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_H]",
+          "original": "+1-216-555-0100"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_G]",
+          "original": "+1-216-555-0191"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_F]",
+          "original": "+1-216-867-4400"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "p.nguyen@meridianglobal.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_E]",
+          "original": "+1-216-555-0244"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_F]",
+          "original": "d.hoffman@meridianglobal.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "s.park@meridianglobal.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+1-216-555-0312"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "m.torres@techvision.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+1-312-555-7890"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "k.menon@techvision.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+1-312-555-7891"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "n.ivanova@techvision.io"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+1-312-555-7892"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "s.park@meridianglobal.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "CREDIT_CARD",
+          "token": "[CARD_A]",
+          "original": "5412-2830-4411-3300"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "p.nguyen@meridianglobal.com"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_6]",
+          "original": "Meridian Global Manufacturing Ltd"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_5]",
+          "original": "Industrial Machinery"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "Industrial Boulevard"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "Cleveland"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "OH"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_3]",
+          "original": "Patricia Nguyen"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "Derek Hoffman"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_4]",
+          "original": "IT Infrastructure  \n   Direct"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_3]",
+          "original": "SAP"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Oracle"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Susan Park"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "MSA"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "name": "Cross-Border Logistics \u2014 Supply Chain",
+      "category": "Logistics / Supply Chain",
+      "description": "International shipping document with customs info, carrier contacts, and payment data",
+      "prompt_length": 1697,
+      "status": "PASSED",
+      "latency_ms": 1912.3,
+      "entities_redacted": 34,
+      "entity_breakdown": {
+        "EMAIL": 5,
+        "PHONE": 4,
+        "CREDIT_CARD": 1,
+        "ORG": 12,
+        "LOCATION": 8,
+        "PERSON": 4
+      },
+      "sanitized_snippet": "INTERNATIONAL COMMERCIAL INVOICE & PACKING LIST\nInvoice No: INV-2026-EXP-004821\nDate of Issue: 2026-07-12 | Terms: DDP (Delivered Duty Paid) \u2014 Incoterms 2020\n\nEXPORTER (Seller):\n[ORG_11], Ltd.\n3-14-1 [ORG_10]-Aoyama, [LOC_6], [LOC_5], [LOC_2] 107-0062\nContact: [PERSON_4] (MD) | [EMAIL_E] | +81 3-555",
+      "restored_snippet": "This document appears to be an international commercial invoice and packing list for a shipment from Fujiwara Precision Components Co., Ltd. in Japan, Japan to Precision Parts GmbH & Co in Germany, Germany. The terms of the sale are Delivered Duty Paid (DDP) according to Incoterms 2020, meaning the seller is responsible for all costs and risks until the goods are delivered to the buyer. \n\nThe ship",
+      "error": null,
+      "audit_log": [
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_E]",
+          "original": "h.fujiwara@fujiwara-prec.jp"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_D]",
+          "original": "k.richter@precision-parts.de"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_D]",
+          "original": "+49 711 9988 7760"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_C]",
+          "original": "+49 173 888 9900"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_C]",
+          "original": "y.shimizu@yamato-global.jp"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_B]",
+          "original": "a.fischer@fischer-braun-zoll.de"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_B]",
+          "original": "+49 711 2233 4455"
+        },
+        {
+          "action": "REDACTED",
+          "type": "EMAIL",
+          "token": "[EMAIL_A]",
+          "original": "f.mueller@precision-parts.de"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PHONE",
+          "token": "[PHONE_A]",
+          "original": "+49 711 9988 7799"
+        },
+        {
+          "action": "REDACTED",
+          "type": "CREDIT_CARD",
+          "token": "[CARD_A]",
+          "original": "4532 9944 3311 2200"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_11]",
+          "original": "Fujiwara Precision Components Co."
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_10]",
+          "original": "Minami"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_6]",
+          "original": "Minato-ku"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_5]",
+          "original": "Tokyo"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "Japan"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_4]",
+          "original": "Hiroshi Fujiwara"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_9]",
+          "original": "Mizuho Bank"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_8]",
+          "original": "Shinjuku Branch"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_3]",
+          "original": "IBAN"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_7]",
+          "original": "Precision Parts GmbH & Co"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_6]",
+          "original": "KG\nIndustriestra\u00dfe"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_4]",
+          "original": "Stuttgart"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_3]",
+          "original": "Baden-W\u00fcrttemberg"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "Germany"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_5]",
+          "original": "HRB Stuttgart"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_3]",
+          "original": "Klaus-Dieter Richter"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_4]",
+          "original": "Deutsche Bank AG"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_3]",
+          "original": "IBAN"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_2]",
+          "original": "COBADEFFXXX"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_2]",
+          "original": "Japan"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_2]",
+          "original": "Yamato Global Logistics"
+        },
+        {
+          "action": "REDACTED",
+          "type": "PERSON",
+          "token": "[PERSON_1]",
+          "original": "Yuko Shimizu"
+        },
+        {
+          "action": "REDACTED",
+          "type": "LOCATION",
+          "token": "[LOC_1]",
+          "original": "Germany"
+        },
+        {
+          "action": "REDACTED",
+          "type": "ORG",
+          "token": "[ORG_1]",
+          "original": "Angela"
+        }
+      ]
+    }
+  ]
+}

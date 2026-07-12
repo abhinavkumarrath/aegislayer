@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AegisLayer — Enterprise Privacy Middleware</title>
+  <meta name="description" content="Zero-trust enterprise privacy middleware. AMD ROCm-accelerated NER with reversible tokenization for LLM prompt sanitization." />
+  <meta name="theme-color" content="#DC2626" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23DC2626'/%3E%3Cpath d='M16 5 L26 9 L26 17 C26 22 21 27 16 29 C11 27 6 22 6 17 L6 9 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+
+<body class="landing-page">
+
+  <!-- Navigation -->
+  <nav class="lp-nav">
+    <div class="hd-brand">
+      <div class="hd-logo" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hd-wordmark" style="display:flex; align-items:center; gap:8px;">
+          AegisLayer
+          <span style="font-size:0.55rem; font-family:var(--font); background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#F87171; padding:2px 6px; border-radius:4px; letter-spacing:0.05em; text-transform:uppercase; box-shadow:0 0 10px rgba(239, 68, 68, 0.2);">AMD Hackathon Edition</span>
+        </div>
+      </div>
+    </div>
+    <div class="lp-nav-links">
+      <a href="/documentation">Documentation</a>
+      <a href="/docs">API Reference</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="/dashboard" class="btn-primary">Launch Dashboard</a>
+      <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="lp-hero">
+    <div class="lp-hero-content">
+      <div class="lp-hero-badge">Zero-Trust Architecture</div>
+      <h1 class="lp-hero-title">Enterprise Privacy Middleware for LLMs</h1>
+      <p class="lp-hero-subtitle">
+        AegisLayer intercepts LLM prompts, redacts sensitive PII via AMD ROCm-accelerated NER, forwards sanitized text to the cloud, and seamlessly restores original values. 
+        <strong>Maximum privacy, zero friction.</strong>
+      </p>
+      <div class="lp-hero-actions">
+        <a href="/dashboard" class="btn-primary lp-hero-btn">Launch Dashboard</a>
+        <a href="/documentation" class="btn-secondary lp-hero-btn">Read the Docs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="lp-features">
+    <h2 class="lp-section-title">Built for the Enterprise</h2>
+    <div class="lp-features-grid">
+      
+      <div class="lp-feature-card">
+        <div class="lp-feature-icon" style="color: var(--c-loc);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <h3 class="lp-feature-title">AMD Instinct™ Accelerated</h3>
+        <p class="lp-feature-desc">Powered by PyTorch on ROCm, achieving sub-100ms Named Entity Recognition (NER) latency using the latest AMD GPU hardware architectures.</p>
+      </div>
+
+      <div class="lp-feature-card">
+        <div class="lp-feature-icon" style="color: var(--c-person);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="lp-feature-title">Reversible Tokenization</h3>
+        <p class="lp-feature-desc">Identifies PII (Persons, Organizations, APIs, Credit Cards) and maps them to opaque tokens (e.g., [PERSON_1]) before data ever leaves your network.</p>
+      </div>
+
+      <div class="lp-feature-card">
+        <div class="lp-feature-icon" style="color: var(--c-api);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h3 class="lp-feature-title">Ephemeral Memory Vault</h3>
+        <p class="lp-feature-desc">Mappings are stored securely in-memory and are instantly wiped out once the round-trip completes. Zero persistent storage of sensitive data.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="lp-footer">
+    <div class="lp-footer-content">
+      <div class="hd-brand">
+        <div class="hd-logo" aria-hidden="true" style="width:24px; height:24px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="hd-wordmark" style="font-size: 0.9rem;">AegisLayer</div>
+      </div>
+      <div class="lp-footer-text">Built for the AMD Developer Cloud Hackathon</div>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

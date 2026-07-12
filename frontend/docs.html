@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AegisLayer — Documentation</title>
+  <meta name="theme-color" content="#DC2626" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23DC2626'/%3E%3Cpath d='M16 5 L26 9 L26 17 C26 22 21 27 16 29 C11 27 6 22 6 17 L6 9 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+
+<body class="landing-page docs-page">
+
+  <!-- Navigation -->
+  <nav class="lp-nav">
+    <div class="hd-brand">
+      <div class="hd-logo" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div>
+        <a href="/" style="text-decoration: none;">
+          <div class="hd-wordmark" style="display:flex; align-items:center; gap:8px;">
+            AegisLayer
+            <span style="font-size:0.55rem; font-family:var(--font); background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#F87171; padding:2px 6px; border-radius:4px; letter-spacing:0.05em; text-transform:uppercase; box-shadow:0 0 10px rgba(239, 68, 68, 0.2);">Docs</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="lp-nav-links">
+      <a href="/">Home</a>
+      <a href="/docs">API Reference</a>
+      <a href="/dashboard" class="btn-primary">Launch Dashboard</a>
+      <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Docs Content -->
+  <section class="docs-content">
+    <div class="docs-container">
+      <h1 class="lp-hero-title" style="font-size: 2.5rem; text-align: left; margin-bottom: 30px;">AegisLayer Documentation</h1>
+      
+      <div class="docs-card">
+        <h2>Overview</h2>
+        <p>AegisLayer is a zero-trust enterprise privacy middleware for Large Language Models. It intercepts LLM prompts, redacts sensitive entities (PII), forwards the sanitised text to external AI APIs, and seamlessly restores the original values in the response.</p>
+        <p>The middleware utilizes a dual-engine approach:</p>
+        <ul>
+          <li><strong>Module A (CPU Regex):</strong> High-speed deterministic detection for structured data like Emails, IPv4, API Keys, Phones, and Credit Cards.</li>
+          <li><strong>Module B (AMD GPU NER):</strong> High-accuracy Named Entity Recognition powered by AMD ROCm and HuggingFace Transformers for unstructured data like Persons, Organizations, and Locations.</li>
+        </ul>
+      </div>
+
+      <div class="docs-card">
+        <h2>API Integration</h2>
+        <p>Integrating AegisLayer into your existing AI workflows is incredibly simple. Point your applications to the AegisLayer endpoint instead of directly to your LLM provider.</p>
+        
+        <h3>POST /api/process</h3>
+        <p>This is the core pipeline endpoint. Send your raw prompt here.</p>
+        
+        <div class="code-block">
+<pre><code>curl -X 'POST' \
+  'http://localhost:8000/api/process' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "session_id": "550e8400-e29b-41d4-a716-446655440000",
+  "prompt": "Please review the contract for John Smith at Acme Corp."
+}'</code></pre>
+        </div>
+        
+        <h3>Response Schema</h3>
+        <p>The response includes the final de-sanitised text, as well as a full audit log of all intercepted entities for compliance purposes.</p>
+      </div>
+
+      <div class="docs-card">
+        <h2>Security Guarantees</h2>
+        <ul>
+          <li><strong>Ephemeral Vault:</strong> Mappings between tokens and original values are held in memory only for the duration of the request round-trip. They are wiped immediately after the response is generated.</li>
+          <li><strong>Opaque Tokens:</strong> Tokens like `[PERSON_1]` carry zero entropy and cannot be reverse-engineered by the LLM or network snoopers.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="lp-footer">
+    <div class="lp-footer-content">
+      <div class="hd-brand">
+        <div class="hd-logo" aria-hidden="true" style="width:24px; height:24px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="hd-wordmark" style="font-size: 0.9rem;">AegisLayer Docs</div>
+      </div>
+      <div class="lp-footer-text">Built for the AMD Developer Cloud Hackathon</div>
+    </div>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

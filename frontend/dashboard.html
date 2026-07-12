@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AegisLayer — Enterprise Privacy Middleware</title>
+  <meta name="description" content="Zero-trust enterprise privacy middleware. AMD ROCm-accelerated NER with reversible tokenization for LLM prompt sanitization." />
+  <meta name="theme-color" content="#DC2626" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23DC2626'/%3E%3Cpath d='M16 5 L26 9 L26 17 C26 22 21 27 16 29 C11 27 6 22 6 17 L6 9 Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+
+<body>
+<div id="app" role="application" aria-label="AegisLayer Enterprise Dashboard">
+
+  <!-- ================================================================
+       HEADER
+       ================================================================ -->
+  <header id="app-header" role="banner">
+
+    <!-- Brand -->
+    <div class="hd-brand">
+      <div class="hd-logo" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="hd-wordmark" style="display:flex; align-items:center; gap:8px;">
+          AegisLayer
+          <span style="font-size:0.55rem; font-family:var(--font); background:rgba(239, 68, 68, 0.15); border:1px solid rgba(239, 68, 68, 0.4); color:#F87171; padding:2px 6px; border-radius:4px; letter-spacing:0.05em; text-transform:uppercase; box-shadow:0 0 10px rgba(239, 68, 68, 0.2);">AMD Hackathon Edition</span>
+        </div>
+        <div class="hd-tagline">Enterprise Privacy Middleware • Powered by AMD Instinct™</div>
+      </div>
+    </div>
+
+    <div class="hd-sep" role="separator" aria-hidden="true"></div>
+
+    <!-- Latency bar -->
+    <div class="hd-center" aria-label="Pipeline latency">
+      <span class="lat-label">Latency</span>
+      <div class="lat-bar" title="End-to-end pipeline latency">
+        <div id="latency-bar-fill" class="lat-bar-fill fast"></div>
+      </div>
+      <span id="latency-display" style="font-family:var(--mono); font-size:0.7rem; font-weight:500; color:var(--t2); white-space:nowrap; min-width:50px;">— ms</span>
+    </div>
+
+    <!-- Right controls -->
+    <div class="hd-right">
+      <!-- GPU Status -->
+      <div id="gpu-badge" role="status" aria-live="polite" aria-label="NER accelerator status" title="NER compute device status">
+        <div id="gpu-pulse" class="loading" aria-hidden="true"></div>
+        <span id="gpu-label">Initialising…</span>
+      </div>
+
+      <div class="hd-sep" role="separator" aria-hidden="true"></div>
+
+      <!-- API Reference link -->
+      <a href="/docs" class="hd-audit-btn" aria-label="Open API Reference" title="API Reference" style="text-decoration:none;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        API Ref
+      </a>
+
+      <!-- Audit Log toggle -->
+      <button id="btn-ledger-float" class="hd-audit-btn" aria-label="Open compliance audit ledger" title="Compliance Ledger">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        Audit Log
+        <span class="hd-audit-count zero" id="ledger-toggle-count" aria-live="polite">0</span>
+      </button>
+
+      <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <div class="hd-version" aria-label="Version 1.0">v1.0</div>
+    </div>
+
+  </header>
+
+  <!-- ================================================================
+       CONFIG RIBBON
+       ================================================================ -->
+  <section id="config-ribbon" aria-label="Pipeline configuration">
+
+    <div class="rb-group">
+      <span class="rb-label">Session</span>
+      <div class="rb-input-wrap">
+        <input
+          type="text"
+          id="session-id-input"
+          aria-label="Session ID (UUIDv4)"
+          placeholder="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="btn-regen-session" aria-label="Generate new session ID" title="Generate new UUID">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="23 4 23 10 17 10"/>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="rb-sep" role="separator" aria-hidden="true"></div>
+
+    <div class="rb-group">
+      <span class="rb-label">Model</span>
+      <select id="llm-model-select" aria-label="Select LLM model">
+        <option value="">─ Server Default ─</option>
+        <optgroup label="Groq (Free Tier)">
+          <option value="llama-3.3-70b-versatile" selected>Groq · llama-3.3-70b-versatile ✦ Best</option>
+          <option value="llama-3.1-8b-instant">Groq · llama-3.1-8b-instant ⚡ Fastest</option>
+          <option value="meta-llama/llama-4-scout-17b-16e-instruct">Groq · llama-4-scout-17b</option>
+          <option value="meta-llama/llama-4-maverick-17b-128e-instruct">Groq · llama-4-maverick-17b</option>
+          <option value="mistral-saba-24b">Groq · mistral-saba-24b</option>
+          <option value="qwen-qwq-32b">Groq · qwen-qwq-32b</option>
+        </optgroup>
+        <optgroup label="OpenAI (Requires Key)">
+          <option value="gpt-4o-mini">OpenAI · gpt-4o-mini</option>
+          <option value="gpt-4o">OpenAI · gpt-4o</option>
+        </optgroup>
+        <optgroup label="Other Providers">
+          <option value="accounts/fireworks/models/llama-v3p3-70b-instruct">Fireworks · llama-3.3-70b</option>
+          <option value="claude-3-5-sonnet-20241022">Anthropic · claude-3.5-sonnet</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="rb-sep" role="separator" aria-hidden="true"></div>
+
+    <div class="rb-status">
+      <span id="ribbon-status-text" style="font-size:0.7rem; font-weight:500; color:var(--t3);" aria-live="polite">Ready</span>
+    </div>
+
+  </section>
+
+  <!-- ================================================================
+       MAIN WORKSPACE
+       ================================================================ -->
+  <main id="workspace" role="main" aria-label="Pipeline workspace">
+
+    <!-- Panel A: Raw Input -->
+    <article class="panel" id="panel-input" aria-labelledby="panel-input-title">
+      <div class="ph">
+        <div class="ph-left">
+          <div class="ph-dot ph-dot-red" aria-hidden="true"></div>
+          <div>
+            <div class="ph-title" id="panel-input-title">Raw Input</div>
+          </div>
+        </div>
+        <span class="ph-badge badge-in">Input</span>
+      </div>
+
+      <div class="pb">
+        <textarea
+          id="prompt-textarea"
+          aria-label="Raw enterprise prompt — enter text to sanitize"
+          placeholder="Paste your enterprise prompt here…&#10;&#10;Example:&#10;Hi, I'm reaching out about John Smith (john.smith@acme.corp) from Acme Corp.&#10;His machine at 192.168.1.105 uses API key sk-proj-xX8mKf2nQqW3rT9v.&#10;Please summarise our Q3 contract discussion."
+          spellcheck="false"
+          autocomplete="off"
+        ></textarea>
+      </div>
+
+      <div class="pf">
+        <span class="pf-stat" id="char-count" aria-live="polite">0 chars</span>
+        <button id="btn-process" aria-label="Run the full AegisLayer privacy pipeline" title="Ctrl+Enter">
+          <svg id="btn-process-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          <span id="btn-process-text">Run Pipeline</span>
+        </button>
+      </div>
+    </article>
+
+    <!-- Panel B: Interception -->
+    <article class="panel" id="panel-intercept" aria-labelledby="panel-intercept-title">
+      <div class="ph">
+        <div class="ph-left">
+          <div class="ph-dot ph-dot-blue" aria-hidden="true"></div>
+          <div>
+            <div class="ph-title" id="panel-intercept-title">Intercepted</div>
+          </div>
+        </div>
+        <span class="ph-badge badge-scan">Border</span>
+      </div>
+
+      <div class="pb">
+        <div
+          id="intercept-content"
+          class="panel-text-area"
+          role="region"
+          aria-label="Sanitised prompt at network boundary"
+          aria-live="polite"
+        >
+          <span class="panel-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Sanitised prompt will appear here. Entity tokens are highlighted by type.
+          </span>
+        </div>
+      </div>
+
+      <div class="pf">
+        <span class="pf-stat" id="intercept-char-count" aria-live="polite">0 chars</span>
+        <span class="pf-stat" id="token-count-label" aria-live="polite">0 entities redacted</span>
+      </div>
+    </article>
+
+    <!-- Panel C: Restored Output -->
+    <article class="panel" id="panel-output" aria-labelledby="panel-output-title">
+      <div class="ph">
+        <div class="ph-left">
+          <div class="ph-dot ph-dot-green" aria-hidden="true"></div>
+          <div>
+            <div class="ph-title" id="panel-output-title">Restored Output</div>
+          </div>
+        </div>
+        <span class="ph-badge badge-out">Verified</span>
+      </div>
+
+      <div class="pb">
+        <div
+          id="output-content"
+          class="panel-text-area output-mode"
+          role="region"
+          aria-label="De-tokenised LLM response"
+          aria-live="polite"
+        >
+          <span class="panel-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+            De-tokenised LLM response will appear here with all original values restored.
+          </span>
+        </div>
+      </div>
+
+      <div class="pf">
+        <span class="pf-stat" id="output-char-count" aria-live="polite">0 chars</span>
+        <button
+          id="btn-copy-output"
+          class="btn-secondary"
+          aria-label="Copy output to clipboard"
+          title="Copy to clipboard"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+          Copy
+        </button>
+      </div>
+    </article>
+
+    <!-- Metrics Strip -->
+    <div id="metrics-row" role="region" aria-label="Pipeline performance metrics">
+
+      <div class="metric">
+        <div class="metric-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <div class="metric-val c-blue" id="metric-latency-val">—</div>
+          <div class="metric-lbl">Latency</div>
+        </div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <div class="metric-val c-red" id="metric-redacted-val">0</div>
+          <div class="metric-lbl">Entities Redacted</div>
+        </div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <rect x="9" y="9" width="6" height="6"/>
+            <line x1="9" y1="1" x2="9" y2="4"/>
+            <line x1="15" y1="1" x2="15" y2="4"/>
+            <line x1="9" y1="20" x2="9" y2="23"/>
+            <line x1="15" y1="20" x2="15" y2="23"/>
+            <line x1="20" y1="9" x2="23" y2="9"/>
+            <line x1="20" y1="14" x2="23" y2="14"/>
+            <line x1="1" y1="9" x2="4" y2="9"/>
+            <line x1="1" y1="14" x2="4" y2="14"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <div class="metric-val" id="metric-device-val" style="font-size:0.78rem">—</div>
+          <div class="metric-lbl">NER Device</div>
+        </div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <div class="metric-data">
+          <div class="metric-val c-green" id="metric-session-val">0</div>
+          <div class="metric-lbl">Pipelines Run</div>
+        </div>
+      </div>
+
+    </div><!-- /metrics-row -->
+
+  </main>
+
+  <!-- ================================================================
+       COMPLIANCE LEDGER DRAWER
+       ================================================================ -->
+  <aside
+    id="ledger-drawer"
+    role="complementary"
+    aria-label="Compliance audit ledger"
+    aria-hidden="true"
+  >
+    <div class="ld-head">
+      <div class="ld-title">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        Compliance Ledger
+        <span id="ledger-count" aria-live="polite">0</span>
+      </div>
+      <button class="ld-close" id="btn-close-ledger" aria-label="Close audit ledger">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="ld-body">
+      <div class="ld-empty" id="ledger-empty" aria-live="polite">
+        <div class="ld-empty-icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <div class="ld-empty-title">No audit entries</div>
+        <div class="ld-empty-sub">Process a prompt to see<br/>entity mutations logged here.</div>
+      </div>
+
+      <table class="audit-table" id="audit-table" aria-label="Entity mutation audit log" style="display:none">
+        <thead>
+          <tr>
+            <th scope="col">Action</th>
+            <th scope="col">Type</th>
+            <th scope="col">Token</th>
+            <th scope="col">Original</th>
+          </tr>
+        </thead>
+        <tbody id="audit-tbody"></tbody>
+      </table>
+    </div>
+  </aside>
+
+  <!-- Toast Container -->
+  <div id="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- Hidden elements for JS compatibility -->
+  <span id="ledger-float-count" style="display:none">0</span>
+
+</div><!-- /#app -->
+
+<script src="/static/app.js"></script>
+</body>
+</html>
